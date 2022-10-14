@@ -1,15 +1,9 @@
-with open(r'C:\Users\kvend\Downloads\rosalind_gc (4).txt') as f:
-    lines = f.readlines()
-szam=[]
-DNS=[]
-for i in range(len(lines)):
-    if lines[i][0]==">":
-        szam.append(lines[i][:-1])
-    else:
-        if lines[i-1][0]==">":
-            DNS.append(lines[i][:-1])
-        else:
-            DNS[len(DNS)-1]=DNS[len(DNS)-1]+lines[i][:-1]
+import  sys, os
+DN=os.path.dirname(__file__)
+PDN=os.path.join(DN,"..")
+sys.path.append(PDN)
+from utils import fasta_reader
+szam,DNS=fasta_reader(r'C:\Users\kvend\Downloads\rosalind_gc (4).txt')
 optind=0
 opt=0
 for i in range(len(DNS)):
