@@ -3,13 +3,12 @@ with open(r'C:\Users\kvend\Downloads\rosalind_lexf.txt') as f:
 s=lines[0][:-1].split()
 m=len(s)
 n=int(lines[1][:-1])
-def adding(s,a):
-    return(s+a)
-def printer(n,s,t):
-    for i in range(n):
+def printer(n,m,s,t):
+    if n==0:
+        print(t)
+        return
+    for i in range(m):
         t=t+s[i]
-        printer(n-1,s,t)
-        if i==n-1:
-            print(t)
-print(s,n)
-printer(n,s,"")
+        printer(n-1,m,s,t)
+        t=t[:-1]
+printer(n,m,s,"")
